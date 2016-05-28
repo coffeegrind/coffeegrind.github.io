@@ -38,19 +38,20 @@ $(document).ready(function() {
         return re.test(email);
     }
 
-    if ($('.subscribe form').length > 0) {
-        $('form input[type="submit"]').bind('click', function(event) {
+    var $form = $('.subscribe form');
+    if ($form.length > 0) {
+        $form.bind('submit', function(event) {
             if (event) event.preventDefault();
             
-            var $email = $(".subscribe form [name='email']");
+            var $email = $(this).find('input[name="email"]');
             if (!isEmail($email.val())) {
                 $email.focus();
-                if ($email.val().length > 0) {
+                if ($email.val() && $email.val().length > 0) {
                     $email.select();
                     $email.hotClass('animated shake');
                 }
             } else {
-                register($('.subscribe form'));
+                register($(this));
             }
         });
     }
@@ -68,20 +69,22 @@ function register($form) {
     });
 
     $.ajax({
-        url: '//startupshell.us8.list-manage.com/subscribe/post-json?u=ab309f640b0f94f8e5fd0a2e8&amp&id=af8824bb76&c=?',
+        url: '//coffeegrind.us13.list-manage.com/subscribe/post-json?u=428dfdf0b07e8f3e37ecc5e87&amp;id=cc195c434c&c=?',
         data: data,
         dataType: 'jsonp',
         error: function(err) {
-            console.log(err);
-            alert("Could not connect to the subscription server. Please try again later.");
+            console.error(err);
+            alert('Could not connect to the subscription server. Please try again later.');
         },
         success: function(data) {
-            if (data.result !== "success") {
-                console.log(data);
-                alert("Submittion error. Please try again.");
+            if (data.result !== 'success') {
+                console.error(data);
+                alert('Submission error. Please try again later.');
             } else {
-                $('.subscribe form input[type=submit]').prop('value', 'Success!');
-                $('.subscribe form input[type=submit]').css('background', 'green');
+                email.hide(400);
+                var $submit = $form.find('input[type="submit"]');
+                $submit.prop('value', 'Success!');
+                $submit.css('background', '#00B32F');
             }
         }
     });

@@ -68,6 +68,9 @@ section,
   }
 }
 
+.clearfix {
+  @include clearfix;
+}
 
 // IMAGE STYLES
 

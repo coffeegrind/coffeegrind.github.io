@@ -1,3 +1,7 @@
+form {
+  @include clearfix;
+}
+
 input {
   border: 0;
   outline: 0;
