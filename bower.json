@@ -1,0 +1,23 @@
+{
+  "name": "coffeegrind-web",
+  "authors": [
+    "Nick Aversano <nick23hi@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "neat": "^1.7.4"
+  }
+}

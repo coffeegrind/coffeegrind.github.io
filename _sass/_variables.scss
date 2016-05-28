@@ -1,0 +1,48 @@
+// COLORS
+
+$white:			#FFF;
+$black:			#000;
+
+$gray:	 		#222;
+$medium-gray:	#888;
+$light-gray:	#EEE;
+
+$red: 			#42B289;
+$dark-red:		darken($red,10%);
+
+
+// DIMENSIONS
+
+$space:		2em;
+$radius:	4px;
+
+
+// BREAKPOINTS
+
+$mobile-size:	em(320);
+$tablet-size:	720px;
+$desktop-size:	em(960);
+$large-size:	em(1224);
+
+
+// TRANSITIONS
+
+.transition {
+  	@include transition(color .15s);
+  	@include transition(background .15s);
+  	@include transition(border .15s);
+}
+
+
+// TYPOGRAPHY
+
+$base-size: 1em;
+$h1-size: 	2.5em;
+$h2-size: 	1.25em;
+$h3-size: 	$base-size;
+
+// OMEGA RESET
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
